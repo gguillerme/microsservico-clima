@@ -1,4 +1,4 @@
-# 🚀 Microsserviço de Coleta de Dados Climáticos
+# Microsserviço de Coleta de Dados Climáticos
 
 Este projeto é um microsserviço completo que demonstra um pipeline de dados simples:
 1.  **Coleta (ETL):** Busca dados meteorológicos atuais da API OpenWeatherMap.
@@ -9,7 +9,7 @@ O ambiente é totalmente conteinerizado usando Docker e Docker Compose.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **Backend:** Python 3.10
 * **Framework da API:** FastAPI
@@ -19,7 +19,7 @@ O ambiente é totalmente conteinerizado usando Docker e Docker Compose.
 
 ---
 
-## 🏁 Como Executar o Projeto
+## Como Executar o Projeto
 
 **Pré-requisitos:**
 * [Docker](https://www.docker.com/products/docker-desktop/)
@@ -38,7 +38,9 @@ Copie o arquivo de exemplo e preencha com suas chaves e senhas:
 # Copie o exemplo
 cp .env.example .env
 ```
-Agora, edite o arquivo `.env` e adicione sua `API_KEY` (Obrigatório) Adicione sua chave de API válida do OpenWeatherMap. `POSTGRES_PASSWORD`(Obrigatório) Defina qualquer senha de sua escolha (ex: senha-segura-123). O ambiente Docker usará esta senha do .env para criar e autenticar o banco de dados, a API e o script automaticamente.
+API_KEY (Obrigatório): Adicione sua chave de API válida do OpenWeatherMap. O script de coleta falhará de forma controlada se esta chave estiver incorreta.
+
+POSTGRES_PASSWORD (Obrigatório): Defina qualquer senha de sua escolha (ex: senha-segura-123). O ambiente Docker usará esta senha para criar e autenticar o banco de dados, a API e o script automaticamente.
 
 **3. Suba o Ambiente Docker**
 Este comando irá construir a imagem da API, iniciar o contêiner do banco de dados e iniciar a API.
@@ -72,7 +74,7 @@ A API estará disponível em `http://localhost:8000`.
 
 A melhor forma de testar a API é através da documentação interativa gerada automaticamente:
 
-👉 **[http://localhost:8000/docs](http://localhost:8000/docs)**
+ **[http://localhost:8000/docs](http://localhost:8000/docs)**
 
 ### Endpoints Disponíveis
 
