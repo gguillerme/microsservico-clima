@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: weather_db_postgres
+    environment:
+      # As variáveis agora vêm do .env
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${DB_PORT:-5432}:5432" # Usa a porta do .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Caminho atualizado para o init.sql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - weather_net
+
+  api:
+    container_name: weather_api_fastapi
+    # Informa o novo local do Dockerfile
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # Passa as variáveis do .env para dentro do contêiner da API
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_HOST=${DB_HOST} # 'db' (vem do .env)
+      - DB_PORT=${DB_PORT} # '5432' (vem do .env)
+    depends_on:
+      - db
+    networks:
+      - weather_net
+
+volumes:
+  postgres_data:
+
+networks:
+  weather_net:
+    driver: bridge
