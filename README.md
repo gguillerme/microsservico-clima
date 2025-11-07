@@ -28,7 +28,7 @@ O ambiente é totalmente conteinerizado usando Docker e Docker Compose.
 
 **1. Clone o Repositório**
 ```bash
-git clone [https://github.com/gguillerme/microsservico-clima.git](https://github.com/gguillerme/microsservico-clima.git)
+git clone https://github.com/gguillerme/microsservico-clima.git
 ```
 
 ```bash
