@@ -43,6 +43,11 @@ cp .env.example .env
 ```
 Agora, edite o arquivo `.env` e adicione sua `API_KEY` do OpenWeather e defina sua `POSTGRES_PASSWORD`.
 
+API_KEY: (Obrigatório) Adicione sua chave de API válida do OpenWeatherMap. O script de coleta falhará de forma controlada se esta chave estiver incorreta.
+
+POSTGRES_PASSWORD: (Obrigatório) Defina qualquer senha de sua escolha (ex: senha-segura-123). O ambiente Docker usará esta senha do .env para criar e autenticar o banco de dados, a API e o script automaticamente.
+
+
 **3. Suba o Ambiente Docker**
 Este comando irá construir a imagem da API, iniciar o contêiner do banco de dados e iniciar a API.
 ```bash
