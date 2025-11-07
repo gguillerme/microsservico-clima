@@ -80,5 +80,5 @@ A melhor forma de testar a API é através da documentação interativa gerada a
 
 * `GET /clima`: Retorna todos os registros climáticos salvos no banco, ordenados do mais recente para o mais antigo.
 * `GET /clima/{cidade}`: Retorna todos os registros para uma cidade específica (busca parcial, ex: "Florian").
-
+* `GET /health`: Retorna um JSON `{"status": "ok"}`. Útil para monitoramento e health checks.
 ---
