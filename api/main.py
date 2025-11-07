@@ -36,6 +36,15 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# ---  Aplicação Health check ---
+@app.get("/health", response_model=dict)
+async def health_check():
+    """
+    Endpoint de health check.
+    Retorna 'ok' se a API estiver no ar.
+    """
+    return {"status": "ok"}
+
 # --- Funções Auxiliares (Conexão com BD) ---
 def get_db_connection() -> psycopg2.extensions.connection | None:
     """
