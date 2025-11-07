@@ -28,8 +28,8 @@ O ambiente é totalmente conteinerizado usando Docker e Docker Compose.
 
 **1. Clone o Repositório**
 ```bash
-git clone [https://github.com/gguillerme/microsservico-clima](https://github.com/gguillerme/microsservico-clima)
-cd weather_project
+git clone [https://github.com/gguillerme/microsservico-clima.git](https://github.com/gguillerme/microsservico-clima.git)
+cd microsservico-clima
 ```
 
 **2. Crie seu Arquivo de Ambiente**
